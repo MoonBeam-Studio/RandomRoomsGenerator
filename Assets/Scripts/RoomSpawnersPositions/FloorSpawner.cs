@@ -30,6 +30,24 @@ public class FloorSpawner : MonoBehaviour
         }
 
         _room.transform.position = transform.position;
+
+        int rotationIndex = Random.Range(0, 4);
+        int rotation = 0;
+        switch (rotationIndex)
+        {
+            case 0:
+                rotation = 0; break;
+            case 1:
+                rotation = 90; break;
+            case 2:
+                rotation = 180; break;
+            case 3:
+                rotation = -90; break;
+            default:
+                break;
+
+        }
+        _room.transform.rotation = Quaternion.Euler(0,rotation,0);
         gameObject.SetActive(false);
     }
 }
